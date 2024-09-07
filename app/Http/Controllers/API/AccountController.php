@@ -10,6 +10,7 @@ class AccountController extends Controller
 {
     public function profile(){
         $user = Auth::user();
+        
         return response(['data'=>$user], 200);
     }
 }
