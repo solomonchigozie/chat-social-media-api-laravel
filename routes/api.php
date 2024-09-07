@@ -5,6 +5,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ChatController;
 use App\Http\Controllers\API\Connections;
 use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\PostsController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('register', [AuthController::class, 'register']);
@@ -27,5 +28,10 @@ Route::middleware("auth:api")->prefix('v1')->group(function() {
     Route::post("event/create", [EventController::class, 'addevent']);
     Route::get('/event/fetch', [EventController::class, 'viewevent']);
     Route::get('/event/single', [EventController::class, 'viewmyevents']);
+
+    //posts 
+    Route::post("posts/create", [PostsController::class, 'addposts']);
+    Route::get('/posts/fetch', [PostsController::class, 'viewposts']);
+    Route::get('/posts/single', [PostsController::class, 'viewmyposts']);
 
 });
