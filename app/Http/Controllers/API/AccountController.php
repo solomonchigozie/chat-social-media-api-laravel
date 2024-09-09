@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
-    public function profile(){
+    public function profile(Request $request){
         $user = Auth::user();
         
         return response(['data'=>$user], 200);
